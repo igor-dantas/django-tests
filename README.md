@@ -1,24 +1,5 @@
-# django-avancado-postgresql
-
->Projeto Django Avançado com Bootstrap e PostgreSQL. Inclusão de testes.
-> 
->>Projeto desenvolvido no curso da Geek University - Udemy [Programação Web com Python e Django Framework: Essencial](https://www.udemy.com/course/programacao-web-com-django-framework-do-basico-ao-avancado/)
-
-## Ambiente de Desenvolvimento
-Linux, Visual Studio Code, Docker e PostgreSQL
-
-## Documentação
-- [DJango](https://www.djangoproject.com/)
-- Dica postgreSQL [vivaolinux](https://www.vivaolinux.com.br/artigo/psql-Conheca-o-basico)
-- Tests [model_mommy](https://model-mommy.readthedocs.io/en/latest/basic_usage.html)
-- Tests [coverage](https://coverage.readthedocs.io/en/7.3.2/)
-- [Postgres dockerhub](https://hub.docker.com/_/postgres)
-
-
 ## Como rodar o projeto
-1. <span style="color:383E42"><b>Preparando ambiente</b></span>
-    <details><summary><span style="color:Chocolate">Detalhes</span></summary>
-    <p>
+1. 
 
     - Criar e ativar ambiente virtual
         ```sh
@@ -36,17 +17,9 @@ Linux, Visual Studio Code, Docker e PostgreSQL
         ```sh
         pip install -r requirements.txt
         ```
-
-    </p>
-
-    </details> 
-
     ---
 
-2. <span style="color:383E42"><b>Criar container fusion-postgres usando `POSTGRESQL` do `dockerhub`</b></span>
-    <details><summary><span style="color:Chocolate">Detalhes</span></summary>
-    <p>
-
+2. 
     - [Documentação dockerhub](https://hub.docker.com/_/postgres)
         - Baixar imagem POSTGRESQL
             ```bash
@@ -111,10 +84,8 @@ Linux, Visual Studio Code, Docker e PostgreSQL
 
     ---
 
-3. <span style="color:383E42"><b>Criação de projeto `fusion` e app `core`</b></span>
-    <details><summary><span style="color:Chocolate">Detalhes</span></summary>
-    <p>
-    
+# Criando conexão com banco de dados
+
     - Criar app no mesmo diretório/pasta que está o projeto.
         >Criar arquivo `privateData.py` com dicionário de dados `myData` contendo as informaçoes que não quero que vá para repositório - Então incluirei o arquivo com a classe no gitignore
         Dicinário `myData`
