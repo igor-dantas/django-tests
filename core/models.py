@@ -3,20 +3,13 @@ from django.db import models
 
 from stdimage.models import StdImageField
 
-# ------------------------------------------------------------------------ #
-# Functions
-# ------------------------------------------------------------------------ #
 
 def get_file_path(_instance, filename):
-    # Captura extenção do arquivo
     ext = filename.split('.')[-1]
-    # Gera um id/código aleatório
     filename = f'{uuid.uuid4()}.{ext}'
     return filename
 
-# ------------------------------------------------------------------------ #
-# Models
-# ------------------------------------------------------------------------ #
+
 class Base(models.Model):
     criados = models.DateField('Criação', auto_now_add=True)
     modificado = models.DateField('Atualização', auto_now=True)
@@ -25,7 +18,7 @@ class Base(models.Model):
     class Meta:
         abstract = True
 
-# ------------------------------------------------------------------------ #
+
 class Servico(Base):
     ICONE_CHOICES = (
         ('lni-cog', 'Engrenagem'),
@@ -46,7 +39,7 @@ class Servico(Base):
     def __str__(self):
         return self.servico
 
-# ------------------------------------------------------------------------ #
+
 class Cargo(Base):
     cargo = models.CharField('Cargo', max_length=100)
 
@@ -56,17 +49,12 @@ class Cargo(Base):
 
     def __str__(self):
         return self.cargo
-# ------------------------------------------------------------------------ #
 
-# ------------------------------------------------------------------------ #
+
 class Funcionario(Base):
     nome = models.CharField('Nome', max_length=100)
     cargo = models.ForeignKey('core.Cargo', verbose_name='Cargo', on_delete=models.CASCADE)
     bio = models.TextField('Bio', max_length=200)
-    # Necessário executar migrations alternar uso das linhas abaixo "imagem".
-    # Esta opção - salva arquivo em uma pasta chamada media/equipe - com nome do arquivo (para nomes repetidos, stdimage adiciona código aleatório)
-    #imagem = StdImageField('Imagem', upload_to='equipe', variations={'thumb': {'width': 480, 'height': 480, 'crop': True}})
-    #Esta opção - usa a função "get_file_path" para gerar o nome para o arquivo - será salvo em "media"
     imagem = StdImageField('Imagem', upload_to=get_file_path, variations={'thumb': {'width': 480, 'height': 480, 'crop': True}})
     facebook = models.CharField('Facebook', max_length=100, default='#')
     twitter = models.CharField('Twitter', max_length=100, default='#')

@@ -10,7 +10,6 @@ class GetFilePathTestCase(TestCase):
     def setUp(self):
         self.filename = f'{uuid.uuid4()}.png'
 
-    # Todo método test começa com a palavra "test_"
     def test_get_file_path(self):
         arquivo = get_file_path(None, 'teste.png')
         self.assertTrue(len(arquivo), len(self.filename))
@@ -23,6 +22,7 @@ class ServicoTestCase(TestCase):
 
     def test_str(self):
         self.assertEquals(str(self.servico), self.servico.servico)
+        # self.assertEquals(str(self.servico), "Valor Errado")
 
 
 class CargoTestCase(TestCase):
@@ -32,6 +32,7 @@ class CargoTestCase(TestCase):
 
     def test_str(self):
         self.assertEquals(str(self.cargo), self.cargo.cargo)
+        # self.assertEquals(str(self.cargo), "Valor Errado")
 
 
 class FuncionarioTestCase(TestCase):
@@ -41,5 +42,4 @@ class FuncionarioTestCase(TestCase):
 
     def test_str(self):
         self.assertEquals(str(self.funcionario), self.funcionario.nome)
-
 

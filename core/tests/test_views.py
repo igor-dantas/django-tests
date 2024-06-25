@@ -17,6 +17,7 @@ class IndexViewTestCase(TestCase):
     def test_form_valid(self):
         request = self.cliente.post(reverse_lazy('index'), data=self.dados)
         self.assertEquals(request.status_code, 302)
+        # self.assertEquals(request.status_code, 400)
 
     def test_form_invalid(self):
         dados = {
@@ -25,4 +26,5 @@ class IndexViewTestCase(TestCase):
         }
         request = self.cliente.post(reverse_lazy('index'), data=dados)
         self.assertEquals(request.status_code, 200)
+        # self.assertEquals(request.status_code, 404)
 
